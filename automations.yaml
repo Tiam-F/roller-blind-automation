@@ -12,7 +12,7 @@ action:
   - service: cover.open_cover
     target:
       entity_id: cover.blind_livingroom  # Replace with your blind's entity ID
-  - delay: "00:00:10"  # Small delay for safety
+  - delay: "00:00:15"  # Small delay for safety
   - condition: numeric_state
     entity_id: sun.sun
     attribute: elevation
