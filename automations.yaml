@@ -1,0 +1,23 @@
+alias: "Control blinds based on sun position"
+description: "Opens and closes blinds depending on the sun's elevation"
+trigger:
+  - platform: time_pattern
+    minutes: "/5"  # Runs every 5 minutes
+condition:
+  - condition: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    above: 15  # Change to desired sun elevation
+action:
+  - service: cover.open_cover
+    target:
+      entity_id: cover.blind_livingroom  # Replace with your blind's entity ID
+  - delay: "00:00:10"  # Small delay for safety
+  - condition: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: 15
+  - service: cover.close_cover
+    target:
+      entity_id: cover.blind_livingroom
+mode: single
