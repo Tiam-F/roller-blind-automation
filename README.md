@@ -2,7 +2,7 @@
 automation of roller blinds
 
 
-This script fetches the sun’s elevation and controls (IKEA) blinds using IKEA DIRIGERA hub and MQTT.
+This script fetches the sun’s elevation and controls (IKEA smart) blinds using IKEA DIRIGERA hub and MQTT.
 
 Requirements:
 
