@@ -14,3 +14,19 @@ Requirements:
   ```
 pip install paho-mqtt astral pytz
 ```
+
+
+Files:
+
+* Settings.py
+  1. Fetches the sun’s elevation using ```astral```.
+  2. If the sun is above 15°, the blinds open.
+  3. If the sun is below 15°, the blinds close.
+  4. Uses MQTT to send the command to Home Assistant (or Zigbee2MQTT).
+
+* Configuration.yaml
+  1. Trigger: Runs every 5 minutes.
+  2. Condition: Checks sun’s elevation ```(sun.sun)```.
+    * If the sun’s elevation is above 15°, the blinds open.
+    * If the sun’s elevation is below 15°, the blinds close.
+  3. Action: Uses ```cover.open_cover``` and ```cover.close_cover``` to control IKEA smart blinds.
